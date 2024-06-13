@@ -1,6 +1,5 @@
-{
-  device ? throw "Set this to your disk device, e.g. /dev/sda",
-  ...
+{ device ? throw "Set this to your disk device, e.g. /dev/sda"
+, ...
 }: {
   disko.devices = {
     disk.main = {
@@ -50,20 +49,20 @@
             size = "100%FREE";
             content = {
               type = "btrfs";
-              extraArgs = ["-f"];
+              extraArgs = [ "-f" ];
 
               subvolumes = {
-                "/root" = {
+                "@" = {
                   mountpoint = "/";
                 };
 
-                "/persist" = {
-                  mountOptions = ["subvol=persist" "noatime"];
+                "@persist" = {
+                  mountOptions = [ "subvol=persist" "noatime" ];
                   mountpoint = "/persist";
                 };
 
-                "/nix" = {
-                  mountOptions = ["subvol=nix" "noatime"];
+                "@nix" = {
+                  mountOptions = [ "subvol=nix" "noatime" ];
                   mountpoint = "/nix";
                 };
               };
