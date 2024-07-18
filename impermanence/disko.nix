@@ -15,7 +15,7 @@
           };
           esp = {
             name = "ESP";
-            size = "500M";
+            size = "1G";
             type = "EF00";
             content = {
               type = "filesystem";
@@ -35,7 +35,7 @@
             size = "100%";
             content = {
               type = "lvm_pv";
-              vg = "root_vg";
+              vg = "vg0";
             };
           };
         };
