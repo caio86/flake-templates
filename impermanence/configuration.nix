@@ -8,12 +8,12 @@
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  
+
   services.openssh.enable = true;
 
   system.stateVersion = "23.05"; # Did you read the comment?
 
-    users.users."vimjoyer" = {
+  users.users."vimjoyer" = {
     isNormalUser = true;
     initialPassword = "1";
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
@@ -64,7 +64,7 @@
 
   programs.fuse.userAllowOther = true;
   home-manager = {
-    extraSpecialArgs = {inherit inputs;};
+    extraSpecialArgs = { inherit inputs; };
     users = {
       "vimjoyer" = import ./home.nix;
     };
